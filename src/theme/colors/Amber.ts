@@ -1,0 +1,28 @@
+export const Amber = {
+  light: {
+    0: '#FFF9EB' as const,
+    50: '#FFF4D9' as const,
+    100: '#FFEEC4' as const,
+    200: '#FFE5A5' as const,
+    300: '#FFDF8D' as const,
+    400: '#FFD260' as const,
+    500: '#FFBD35' as const,
+    600: '#FCAA1E' as const,
+    700: '#F9941C' as const,
+    800: '#BD712B' as const,
+    900: '#7F4A0C' as const,
+  },
+  dark: {
+    0: '#613809' as const,
+    50: '#6D3F0A' as const,
+    100: '#79460B' as const,
+    200: '#B46B29' as const,
+    300: '#ED8D1B' as const,
+    400: '#EFA11D' as const,
+    500: '#F2B432' as const,
+    600: '#F2C75B' as const,
+    700: '#F2D486' as const,
+    800: '#F2DA9D' as const,
+    900: '#F2E2BA' as const,
+  },
+} as const;
