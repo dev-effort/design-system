@@ -25,7 +25,7 @@ const defaultTheme = {
 };
 
 const myCache = createCache({
-  key: 'pdc',
+  key: 'gds',
   prepend: true,
 });
 
@@ -39,7 +39,9 @@ export const ThemeProvider = ({ theme, children, mode = 'light' }: Props) => {
     <CacheProvider value={myCache}>
       <EmotionThemeProvider
         theme={
-          theme ? { ...theme, colors: theme.colors[mode] } : { ...defaultTheme, colors: defaultTheme.colors(mode) }
+          theme
+            ? { ...theme, colors: theme.colors[mode], size: theme.size }
+            : { colors: defaultTheme.colors(mode), size: defaultTheme.size }
         }
       >
         {children}
