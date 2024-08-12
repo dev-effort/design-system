@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Size, SizeKey } from '../../theme/sizes';
+import { SizeKey } from '../../theme/sizes';
 import styled from '@emotion/styled';
 
 type Variant = 'contain' | 'border' | 'text';
