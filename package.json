@@ -2,19 +2,19 @@
   "name": "good-design-system",
   "description": "design system",
   "private": false,
-  "version": "0.0.0",
+  "version": "0.0.3",
   "type": "module",
+  "main": "./lib/good-design-system.cjs",
+  "module": "./lib/good-design-system.js",
+  "types": "./lib/main.d.ts",
   "files": [
-    "dist"
+    "lib/"
   ],
-  "main": "dist/index.es.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js",
-      "types": "./dist/index.d.ts"
+      "types": "./lib/main.d.ts",
+      "import": "./lib/good-design-system.js",
+      "require": "./lib/good-design-system.cjs"
     }
   },
   "scripts": {
@@ -24,7 +24,8 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "yarn build"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.1",
