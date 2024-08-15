@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { Button } from '../components/buttons';
+import { AddIcon } from '../icons/AddIcon';
 
 const meta = {
   title: 'Example/Button',
@@ -10,9 +11,26 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
+    radius: {
+      control: 'number',
+    },
+    endIcon: {
+      control: 'boolean',
+      mapping: {
+        false: '',
+        true: <AddIcon />,
+      },
+    },
+    startIcon: {
+      control: 'boolean',
+      mapping: {
+        false: '',
+        true: <AddIcon />,
+      },
+    },
     variant: {
       control: 'radio',
-      options: ['contain', 'border', 'text'],
+      options: ['contain', 'outline', 'text'],
       description: '버튼의 모양',
     },
     size: {
@@ -32,5 +50,8 @@ export const Primary: Story = {
     variant: 'contain',
     size: 'xlarge',
     children: '버튼',
+    startIcon: false,
+    endIcon: false,
+    radius: 6,
   },
 };

@@ -7,8 +7,6 @@ export type Size = {
   tiny: number;
 };
 
-export type SizeKey = keyof Size;
-
 export const size: Size = {
   xlarge: 52,
   large: 44,
