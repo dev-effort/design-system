@@ -233,7 +233,7 @@ const getBorder = (variant: Variant, color: Color, theme: Theme) => {
         `;
       case 'secondary':
         return css`
-          border: 1px solid ${theme.colors.bg.tertiary};
+          border: 1px solid ${theme.colors.border.secondary};
         `;
       case 'success':
         return css`
