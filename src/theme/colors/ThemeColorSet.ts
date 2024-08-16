@@ -5,7 +5,6 @@ import { Green } from './Green';
 import { Navy } from './Navy';
 import { Orange } from './Orange';
 import { Red } from './Red';
-import { Violet } from './Violet';
 import { Yellow } from './Yellow';
 
 export type ThemeColorSetType = {
