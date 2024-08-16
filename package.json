@@ -2,7 +2,7 @@
   "name": "good-design-system",
   "description": "design system",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "main": "./lib/good-design-system.cjs",
   "module": "./lib/good-design-system.js",
