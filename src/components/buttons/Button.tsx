@@ -30,6 +30,7 @@ export const Button = ({
   endIcon = false,
   radius = 6,
   type = 'button',
+  disabled = false,
   ...props
 }: Props) => {
   return (
@@ -42,6 +43,7 @@ export const Button = ({
       fullWidth={fullWidth}
       startIcon={startIcon}
       endIcon={endIcon}
+      disabled={disabled}
       {...props}
     >
       {startIcon}
