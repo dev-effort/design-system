@@ -3,6 +3,7 @@ import { ThemeColorSetType, themeColorSet } from './colors/ThemeColorSet';
 import { size, Size } from './sizes';
 import { CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { PropsWithChildren } from 'react';
+import emotionStyled from '@emotion/styled';
 
 declare module '@emotion/react' {
   export interface Theme {
@@ -33,6 +34,8 @@ type Props = PropsWithChildren<{
   theme?: CustomTheme;
   mode?: 'light' | 'dark';
 }>;
+
+export const styled = emotionStyled;
 
 export const ThemeProvider = ({ theme, children, mode = 'light' }: Props) => {
   return (

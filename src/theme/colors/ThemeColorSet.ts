@@ -62,6 +62,7 @@ export type ThemeColorSetType = {
     dim: string;
     white: string;
     black: string;
+    inverse: string;
   };
   bg: {
     primary: string;
@@ -148,6 +149,7 @@ export const themeColorSet = (mode: 'light' | 'dark'): ThemeColorSetType => {
       dim: CoolGray[mode][300],
       white: White[100],
       black: Black[0],
+      inverse: mode === 'light' ? Black[0] : White[100],
     },
     bg: {
       primary: mode === 'light' ? White[100] : Black[0],
