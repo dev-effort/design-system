@@ -1,6 +1,6 @@
 import createCache from '@emotion/cache';
 import { ThemeColorSetType, themeColorSet } from './colors/ThemeColorSet';
-import { size, Size } from './sizes';
+import { size, Size, smallerSize } from './sizes';
 import { CacheProvider, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 import { PropsWithChildren } from 'react';
 import emotionStyled from '@emotion/styled';
@@ -8,7 +8,10 @@ import emotionStyled from '@emotion/styled';
 declare module '@emotion/react' {
   export interface Theme {
     colors: ThemeColorSetType;
-    size: Size;
+    size: {
+      common: Size;
+      smaller: Size;
+    };
   }
 }
 
@@ -17,12 +20,18 @@ export interface CustomTheme {
     light: ThemeColorSetType;
     dark: ThemeColorSetType;
   };
-  size: Size;
+  size: {
+    common: Size;
+    smaller: Size;
+  };
 }
 
 const defaultTheme = {
   colors: themeColorSet,
-  size: size,
+  size: {
+    common: size,
+    smaller: smallerSize,
+  },
 };
 
 const myCache = createCache({

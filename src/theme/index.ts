@@ -1,5 +1,5 @@
 export { fonts } from './fonts';
-export { size } from './sizes';
+export { size, smallerSize } from './sizes';
 export type { Size } from './sizes';
 export * from './colors';
 export { themeColorSet } from './colors/ThemeColorSet';

@@ -54,7 +54,7 @@ export const Button = ({
 };
 
 const Container = styled.button<Required<ButtonProps>>`
-  height: ${props => props.theme.size[props.size]}px;
+  height: ${props => props.theme.size.common[props.size]}px;
   width: ${props => (props.fullWidth ? '100%' : 'fit-content')};
 
   display: inline-flex;
@@ -66,7 +66,7 @@ const Container = styled.button<Required<ButtonProps>>`
   border-radius: ${props => props.radius}px;
   ${props => getFontSize(props.size)};
 
-  ${props => getColor(props.variant, props.color ?? 'primary', props.theme)};
+  ${props => getColor(props.variant, props.color, props.theme)};
   ${props => getBackgroundColor(props.variant, props.color, props.theme)};
   ${props => getBorder(props.variant, props.color, props.theme)};
 

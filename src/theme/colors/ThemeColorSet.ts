@@ -178,3 +178,13 @@ export const themeColorSet = (mode: 'light' | 'dark'): ThemeColorSetType => {
     },
   };
 };
+
+export const getOpacity = (percent: number) => {
+  if (percent < 0 || percent > 100) {
+    throw new Error('Percentage must be between 0 and 100');
+  }
+
+  const alphaValue = Math.round((percent / 100) * 255);
+
+  return alphaValue.toString(16).toUpperCase().padStart(2, '0');
+};

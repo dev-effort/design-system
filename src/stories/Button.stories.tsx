@@ -5,7 +5,7 @@ import { AddIcon } from '../icons/AddIcon';
 import { ThemeProvider } from '../theme';
 
 const meta = {
-  title: 'Example/Button',
+  title: 'Components/Button',
   component: Button,
   parameters: {
     layout: 'centered',

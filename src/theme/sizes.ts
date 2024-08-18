@@ -15,3 +15,12 @@ export const size: Size = {
   xsmall: 32,
   tiny: 28,
 };
+
+export const smallerSize: Size = {
+  xlarge: 34,
+  large: 30,
+  medium: 27,
+  small: 24,
+  xsmall: 20,
+  tiny: 16,
+};
