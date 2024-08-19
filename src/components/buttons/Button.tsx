@@ -56,6 +56,7 @@ export const Button = ({
 const Container = styled.button<Required<ButtonProps>>`
   height: ${props => props.theme.size.common[props.size]}px;
   width: ${props => (props.fullWidth ? '100%' : 'fit-content')};
+  box-sizing: border-box;
 
   display: inline-flex;
   flex-direction: row;
