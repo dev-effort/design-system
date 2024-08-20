@@ -52,6 +52,9 @@ const meta = {
     disabled: {
       control: 'boolean',
     },
+    placeholder: {
+      control: 'text',
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof TextField>;
@@ -69,6 +72,8 @@ export const Primary: Story = {
     radius: 6,
     disabled: false,
     isRequired: false,
+    placeholder: '',
+    isError: false,
   },
   render: args => (
     <div>
