@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { Size, fonts, styled } from '../../theme';
 import { css } from '@emotion/react';
 import { Theme } from '@emotion/react';
@@ -20,45 +20,50 @@ type Props = TextFieldProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, 
 type StyledProps = Omit<TextFieldProps, 'size'> &
   Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> & { scale: keyof Size };
 
-export const TextField = ({
-  label,
-  isRequired = false,
-  size = 'medium',
-  fullWidth = false,
-  startIcon = false,
-  endIcon = false,
-  radius = 6,
-  isError = false,
-  helpText,
-  ...props
-}: Props) => {
-  return (
-    <Container fullWidth={fullWidth}>
-      {label && (
-        <Label size={size}>
-          {label} {isRequired && <span className="star">*</span>}
-        </Label>
-      )}
+export const TextField = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      label,
+      isRequired = false,
+      size = 'medium',
+      fullWidth = false,
+      startIcon = false,
+      endIcon = false,
+      radius = 6,
+      isError = false,
+      helpText,
+      ...props
+    }: Props,
+    ref,
+  ) => {
+    return (
+      <Container ref={ref} fullWidth={fullWidth}>
+        {label && (
+          <Label size={size}>
+            {label} {isRequired && <span className="star">*</span>}
+          </Label>
+        )}
 
-      <TextFieldContainer>
-        {startIcon && <span className="start-icon">{startIcon}</span>}
-        <TextFieldInput
-          scale={size}
-          radius={radius}
-          fullWidth={fullWidth}
-          startIcon={startIcon}
-          endIcon={endIcon}
-          isError={isError}
-          {...props}
-        />
+        <TextFieldContainer>
+          {startIcon && <span className="start-icon">{startIcon}</span>}
+          <TextFieldInput
+            scale={size}
+            radius={radius}
+            fullWidth={fullWidth}
+            startIcon={startIcon}
+            endIcon={endIcon}
+            isError={isError}
+            {...props}
+          />
 
-        {endIcon && <span className="end-icon">{endIcon}</span>}
-      </TextFieldContainer>
+          {endIcon && <span className="end-icon">{endIcon}</span>}
+        </TextFieldContainer>
 
-      {isError && <HelpText size={size}>{helpText}</HelpText>}
-    </Container>
-  );
-};
+        {isError && <HelpText size={size}>{helpText}</HelpText>}
+      </Container>
+    );
+  },
+);
 
 const getFontSize = (size: keyof Size) => {
   switch (size) {

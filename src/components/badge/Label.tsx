@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import { Size, fonts } from '../../theme';
 import styled from '@emotion/styled';
 import { Theme, css } from '@emotion/react';
@@ -20,34 +20,40 @@ type LabelProps = {
 
 type Props = LabelProps & Omit<React.ButtonHTMLAttributes<HTMLDivElement>, 'label'>;
 
-export const Label = ({
-  label,
-  variant = 'complex',
-  size = 'small',
-  color = 'primary',
-  startIcon = false,
-  endIcon = false,
-  radius = 4,
-  fullWidth = false,
-  ...props
-}: Props) => {
-  return (
-    <Container
-      variant={variant}
-      size={size}
-      color={color}
-      radius={radius}
-      fullWidth={fullWidth}
-      startIcon={startIcon}
-      endIcon={endIcon}
-      {...props}
-    >
-      {startIcon}
-      {label}
-      {endIcon}
-    </Container>
-  );
-};
+export const Label = forwardRef<HTMLDivElement, Props>(
+  (
+    {
+      label,
+      variant = 'complex',
+      size = 'small',
+      color = 'primary',
+      startIcon = false,
+      endIcon = false,
+      radius = 4,
+      fullWidth = false,
+      ...props
+    }: Props,
+    ref,
+  ) => {
+    return (
+      <Container
+        ref={ref}
+        variant={variant}
+        size={size}
+        color={color}
+        radius={radius}
+        fullWidth={fullWidth}
+        startIcon={startIcon}
+        endIcon={endIcon}
+        {...props}
+      >
+        {startIcon}
+        {label}
+        {endIcon}
+      </Container>
+    );
+  },
+);
 
 const Container = styled.div<Required<Omit<LabelProps, 'label'>>>`
   height: ${props => props.theme.size.smaller[props.size]}px;

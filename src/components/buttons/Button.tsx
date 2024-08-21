@@ -1,4 +1,4 @@
-import { PropsWithChildren, ReactNode } from 'react';
+import { PropsWithChildren, ReactNode, forwardRef } from 'react';
 import { Size } from '../../theme/sizes';
 import styled from '@emotion/styled';
 import { fonts } from '../../theme';
@@ -20,38 +20,44 @@ type ButtonProps = {
 
 type Props = PropsWithChildren<ButtonProps> & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({
-  children,
-  variant = 'contain',
-  size = 'medium',
-  fullWidth = false,
-  color = 'primary',
-  startIcon = false,
-  endIcon = false,
-  radius = 6,
-  type = 'button',
-  disabled = false,
-  ...props
-}: Props) => {
-  return (
-    <Container
-      variant={variant}
-      size={size}
-      color={color}
-      radius={radius}
-      type={type}
-      fullWidth={fullWidth}
-      startIcon={startIcon}
-      endIcon={endIcon}
-      disabled={disabled}
-      {...props}
-    >
-      {startIcon}
-      {children}
-      {endIcon}
-    </Container>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, Props>(
+  (
+    {
+      children,
+      variant = 'contain',
+      size = 'medium',
+      fullWidth = false,
+      color = 'primary',
+      startIcon = false,
+      endIcon = false,
+      radius = 6,
+      type = 'button',
+      disabled = false,
+      ...props
+    }: Props,
+    ref,
+  ) => {
+    return (
+      <Container
+        ref={ref}
+        variant={variant}
+        size={size}
+        color={color}
+        radius={radius}
+        type={type}
+        fullWidth={fullWidth}
+        startIcon={startIcon}
+        endIcon={endIcon}
+        disabled={disabled}
+        {...props}
+      >
+        {startIcon}
+        {children}
+        {endIcon}
+      </Container>
+    );
+  },
+);
 
 const Container = styled.button<Required<ButtonProps>>`
   height: ${props => props.theme.size.common[props.size]}px;
