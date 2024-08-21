@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 import { AddIcon } from '../icons/AddIcon';
 import { ThemeProvider } from '../theme';
-import { Label } from '../components/badge/Label';
+import { Label } from '../components/label/Label';
 
 const meta = {
   title: 'Components/Label',
