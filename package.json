@@ -2,7 +2,7 @@
   "name": "good-design-system",
   "description": "design system",
   "private": false,
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "main": "./lib/good-design-system.cjs",
   "module": "./lib/good-design-system.js",
@@ -25,7 +25,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "prepublishOnly": "yarn build"
+    "prepublishOnly": "yarn build",
+    "postversion": "git push && git push --tags"
   },
   "dependencies": {
     "@emotion/cache": "^11.13.1",
