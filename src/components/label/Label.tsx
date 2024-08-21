@@ -18,7 +18,7 @@ type LabelProps = {
   fullWidth?: boolean;
 };
 
-type Props = LabelProps & Omit<React.HTMLAttributes<HTMLDivElement>, 'label'>;
+type Props = LabelProps & React.HTMLAttributes<HTMLDivElement>;
 
 export const Label = forwardRef<HTMLDivElement, Props>(
   (
