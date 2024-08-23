@@ -55,6 +55,9 @@ const meta = {
     placeholder: {
       control: 'text',
     },
+    indent: {
+      control: 'number',
+    },
   },
   args: { onClick: fn() },
 } satisfies Meta<typeof TextField>;
@@ -74,6 +77,7 @@ export const Primary: Story = {
     isRequired: false,
     placeholder: '',
     isError: false,
+    indent: undefined,
   },
   render: args => (
     <div>

@@ -13,6 +13,7 @@ type TextFieldProps = {
   radius?: number;
   isError?: boolean;
   helpText?: string;
+  indent?: number;
 };
 
 type Props = TextFieldProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
@@ -32,6 +33,7 @@ export const TextField = forwardRef<HTMLDivElement, Props>(
       radius = 6,
       isError = false,
       helpText,
+      indent,
       ...props
     }: Props,
     ref,
@@ -53,6 +55,7 @@ export const TextField = forwardRef<HTMLDivElement, Props>(
             startIcon={startIcon}
             endIcon={endIcon}
             isError={isError}
+            indent={indent}
             {...props}
           />
 
@@ -138,7 +141,7 @@ const TextFieldInput = styled.input<StyledProps>`
   align-items: center;
   justify-content: center;
   gap: ${props => (props.scale === 'xlarge' ? '6px' : '4px')};
-  text-indent: ${props => (props.startIcon ? '30px' : '7px')};
+  text-indent: ${props => (props.indent ? `${props.indent}px` : props.startIcon ? '30px' : '7px')};
   border-radius: ${props => props.radius}px;
   outline: none;
 
