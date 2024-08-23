@@ -15,9 +15,6 @@ const meta = {
     label: {
       control: 'text',
     },
-    disabled: {
-      control: 'boolean',
-    },
     fullWidth: {
       control: 'boolean',
     },
@@ -70,7 +67,6 @@ export const Primary: Story = {
     startIcon: false,
     endIcon: false,
     radius: 6,
-    disabled: false,
   },
   render: args => (
     <div>
