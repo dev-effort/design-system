@@ -71,10 +71,6 @@ const Container = styled.div<Required<Omit<LabelProps, 'label'>>>`
   ${props => getColor(props.variant, props.color, props.theme)};
   ${props => getBackgroundColor(props.variant, props.color, props.theme)};
   ${props => getBorder(props.variant, props.color, props.theme)};
-
-  :disabled {
-    background-color: ${props => props.theme.colors.bg.dim};
-  }
 `;
 
 const getPadding = (size: keyof Size, startIcon: boolean, endIcon: boolean) => {
